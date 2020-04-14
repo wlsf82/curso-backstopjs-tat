@@ -1,0 +1,117 @@
+{
+  "id": "Ticketbox",
+  "viewports": [
+    {
+      "label": "tablet",
+      "width": 1024,
+      "height": 768
+    }
+  ],
+  "onBeforeScript": "puppet/onBefore.js",
+  "onReadyScript": "puppet/onReady.js",
+  "scenarios": [
+    {
+      "label": "Initial state",
+      "url": "https://ticketbox-backstopjs-tat.s3.eu-central-1.amazonaws.com/index.html",
+      "misMatchThreshold": 0,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "Check VIP",
+      "url": "https://ticketbox-backstopjs-tat.s3.eu-central-1.amazonaws.com/index.html",
+      "clickSelector": "#vip",
+      "misMatchThreshold": 0,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "Checkboxes",
+      "url": "https://ticketbox-backstopjs-tat.s3.eu-central-1.amazonaws.com/index.html",
+      "clickSelectors": ["#friend", "#publication", "#social-media"],
+      "misMatchThreshold": 0,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "Selects 3 Tickets",
+      "onReadyScript": "puppet/custom/selectTickets.js",
+      "url": "https://ticketbox-backstopjs-tat.s3.eu-central-1.amazonaws.com/index.html",
+      "misMatchThreshold": 0,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "Invalid email",
+      "onReadyScript": "puppet/custom/typeInvalidEmail.js",
+      "url": "https://ticketbox-backstopjs-tat.s3.eu-central-1.amazonaws.com/index.html",
+      "misMatchThreshold": 0,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "Fill all mandatory fields",
+      "onReadyScript": "puppet/custom/fillMandatoryFields.js",
+      "url": "https://ticketbox-backstopjs-tat.s3.eu-central-1.amazonaws.com/index.html",
+      "misMatchThreshold": 0,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "Successfully submits the form",
+      "onReadyScript": "puppet/custom/successfullySubmitForm.js",
+      "url": "https://ticketbox-backstopjs-tat.s3.eu-central-1.amazonaws.com/index.html",
+      "hideSelectors": [".success span"],
+      "misMatchThreshold": 0,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "Header component",
+      "url": "https://ticketbox-backstopjs-tat.s3.eu-central-1.amazonaws.com/index.html",
+      "selectors": ["header"],
+      "misMatchThreshold": 0,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "Reset button component",
+      "url": "https://ticketbox-backstopjs-tat.s3.eu-central-1.amazonaws.com/index.html",
+      "selectors": [".reset"],
+      "misMatchThreshold": 0,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "Submit button gray component",
+      "url": "https://ticketbox-backstopjs-tat.s3.eu-central-1.amazonaws.com/index.html",
+      "selectors": ["button[type=\"submit\"]"],
+      "misMatchThreshold": 0,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "Submit button green component",
+      "onReadyScript": "puppet/custom/fillMandatoryFields.js",
+      "url": "https://ticketbox-backstopjs-tat.s3.eu-central-1.amazonaws.com/index.html",
+      "selectors": ["button[type=\"submit\"]"],
+      "misMatchThreshold": 0,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "Success message component",
+      "onReadyScript": "puppet/custom/successfullySubmitForm.js",
+      "url": "https://ticketbox-backstopjs-tat.s3.eu-central-1.amazonaws.com/index.html",
+      "selectors": [".success"],
+      "hideSelectors": [".success span"],
+      "misMatchThreshold": 0,
+      "requireSameDimensions": true
+    }
+  ],
+  "paths": {
+    "bitmaps_reference": "backstop_data/bitmaps_reference",
+    "bitmaps_test": "backstop_data/bitmaps_test",
+    "engine_scripts": "backstop_data/engine_scripts",
+    "html_report": "backstop_data/html_report",
+    "ci_report": "backstop_data/ci_report"
+  },
+  "report": ["browser"],
+  "engine": "puppeteer",
+  "engineOptions": {
+    "args": ["--no-sandbox"]
+  },
+  "asyncCaptureLimit": 5,
+  "asyncCompareLimit": 50,
+  "debug": false,
+  "debugWindow": false
+}

@@ -1,0 +1,15 @@
+{
+  "name": "curso-backstopjs-new",
+  "version": "1.0.0",
+  "description": "Projeto para o curso de BackstopJS da Escola TAT",
+  "scripts": {
+    "test": "npm run test:visual",
+    "test:visual": "backstop test",
+    "test:visual:approve": "backstop approve"
+  },
+  "author": "Walmyr Filho <wlsf82@gmail.com> (https://walmyr-filho.com)",
+  "license": "MIT",
+  "devDependencies": {
+    "backstopjs": "^4.5.1"
+  }
+}
