@@ -1,5 +1,5 @@
 # curso-backstopjs-tat
-Projeto para o curso de [BackstopJS](https://backstopjs.org) da Escola TAT
+Projeto para o curso de [BackstopJS](https://github.com/garris/BackstopJS) da [Escola TAT](https://talkingabouttesting.coursify.me/).
 
 ## Instalação
 
